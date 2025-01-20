@@ -319,3 +319,4 @@ RELEASE_MSG
 # Linux project files
 /Makefile
 /.ignore
+.vsconfig
