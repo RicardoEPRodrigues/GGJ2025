@@ -36,5 +36,16 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Attributes")
 	FGameplayAttributeData Stamina;
 	ATTRIBUTE_ACCESSORS(UGGJPlayerAttributeSet, Stamina);
+
+	UPROPERTY(BlueprintReadOnly, Category = "Attributes")
+	FGameplayAttributeData StaminaRegen;
+	ATTRIBUTE_ACCESSORS(UGGJPlayerAttributeSet, StaminaRegen);
+
+	UPROPERTY(BlueprintReadOnly, Category = "Attributes")
+	FGameplayAttributeData MaxStamina;
+	ATTRIBUTE_ACCESSORS(UGGJPlayerAttributeSet, MaxStamina);
+
+	// Using this function to clamp the values
+	virtual void PreAttributeBaseChange(const FGameplayAttribute& Attribute, float& NewValue) const override;
 };
 
