@@ -37,6 +37,10 @@ public:
 	FGameplayAttributeData MaxValue;
 	ATTRIBUTE_ACCESSORS(UGGJFruitAttributeSet, MaxValue);
 
+	UPROPERTY(BlueprintReadOnly, Category = "Fruit Attributes")
+	FGameplayAttributeData MaturityLevel;
+	ATTRIBUTE_ACCESSORS(UGGJFruitAttributeSet, MaturityLevel);
+
 
 	// Using this function to clamp the values
 	virtual void PreAttributeBaseChange(const FGameplayAttribute& Attribute, float& NewValue) const override;
