@@ -8,7 +8,7 @@
 #include "AbilitySystemInterface.h"
 #include "GGJ2025Character.generated.h"
 
-class USpringArmComponent;
+class USkeletalMeshComponent;
 class UCameraComponent;
 class UInputMappingContext;
 class UInputAction;
@@ -21,13 +21,14 @@ class AGGJ2025Character : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
-	/** Camera boom positioning the camera behind the character */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	USpringArmComponent* CameraBoom;
+	/** Pawn mesh: 1st person view (arms; seen only by self) */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Mesh, meta = (AllowPrivateAccess = "true"))
+	USkeletalMeshComponent* Mesh1P;
 
-	/** Follow camera */
+	/** First person camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	UCameraComponent* FollowCamera;
+	UCameraComponent* FirstPersonCameraComponent;
+
 
 public:
 	AGGJ2025Character();
@@ -49,11 +50,11 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GAS", meta = (AllowPrivateAccess = "true"))
 	const class UGGJPlayerAttributeSet* GGJPlayerAbilitySet;
 
-
 public:
-	/** Returns CameraBoom subobject **/
-	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
-	/** Returns FollowCamera subobject **/
-	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+	/** Returns Mesh1P subobject **/
+	USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
+	/** Returns FirstPersonCameraComponent subobject **/
+	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
+
 };
 
