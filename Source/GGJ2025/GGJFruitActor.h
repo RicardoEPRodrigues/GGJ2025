@@ -4,11 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Engine/StaticMeshActor.h"
 #include "AbilitySystemInterface.h"
 #include "GGJFruitActor.generated.h"
 
 UCLASS()
-class GGJ2025_API AGGJFruitActor : public AActor, public IAbilitySystemInterface
+class GGJ2025_API AGGJFruitActor : public AStaticMeshActor, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 	
