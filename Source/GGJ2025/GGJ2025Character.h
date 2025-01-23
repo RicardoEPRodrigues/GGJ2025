@@ -29,19 +29,15 @@ class AGGJ2025Character : public ACharacter, public IAbilitySystemInterface
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
 
-
 public:
 	AGGJ2025Character();
-	
-
 
 protected:
-
-
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GAS", meta = (AllowPrivateAccess = "true"))
 	class UAbilitySystemComponent* AbilitySystemComponent;
 
-	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override {
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
+	{
 		return AbilitySystemComponent;
 	}
 
@@ -56,5 +52,9 @@ public:
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
-};
+	UFUNCTION(BlueprintCallable, Category = "PauseMenu")
+	void ShowBubble();
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "PauseMenu")
+	TSubclassOf<AActor> BubbleClass;
+};
