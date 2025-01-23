@@ -13,6 +13,10 @@ class AGGJ2025GameMode : public AGameModeBase
 
 public:
 	AGGJ2025GameMode();
+
+	// Basic Attribute Set
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Game Mode", meta = (AllowPrivateAccess = "true"))
+	float GameTimer = 200;
 };
 
 
