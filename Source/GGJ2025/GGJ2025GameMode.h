@@ -17,6 +17,38 @@ public:
 	// Basic Attribute Set
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Game Mode", meta = (AllowPrivateAccess = "true"))
 	float GameTimer = 200;
+
+	// Current score
+	UPROPERTY(BlueprintReadWrite, Category = "Score")
+	int32 CurrentScore;
+
+	// High score
+	UPROPERTY(BlueprintReadWrite, Category = "Score")
+	int32 HighScore;
+
+	// Current level
+	UPROPERTY(BlueprintReadWrite, Category = "Level")
+	int32 CurrentLevel;
+
+	// Function to update the score
+	UFUNCTION(BlueprintCallable, Category = "Score")
+	void AddToScore(int32 Points);
+
+	// Function to save the high score
+	UFUNCTION(BlueprintCallable, Category = "Save")
+	void SaveHighScore();
+
+	// Function to load the high score
+	UFUNCTION(BlueprintCallable, Category = "Save")
+	void LoadHighScore();
+
+	// Function to save the high score
+	UFUNCTION(BlueprintCallable, Category = "Save")
+	void SaveLevel();
+
+	// Function to load the high score
+	UFUNCTION(BlueprintCallable, Category = "Save")
+	void LoadHighLevel();
 };
 
 
