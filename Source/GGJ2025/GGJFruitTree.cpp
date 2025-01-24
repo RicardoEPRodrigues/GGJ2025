@@ -39,7 +39,7 @@ FVector3f AGGJFruitTree::GetFruitSpawnPosition()
 	float X = CenterPosition.X + (SpawnCircleRadius * FMath::Cos(randomAngle));
 	float Y = CenterPosition.Y + (SpawnCircleRadius * FMath::Sin(randomAngle));
 
-	FVector3f SpawnPosition = FVector3f(X, Y, SpawnHeight);
+	FVector3f SpawnPosition = FVector3f(X, Y, CenterPosition.Z);
 
 	return SpawnPosition;	
 }
