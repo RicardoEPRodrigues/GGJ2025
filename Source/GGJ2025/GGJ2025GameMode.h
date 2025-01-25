@@ -27,8 +27,6 @@ struct FGGJ2025GameModeLevel
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<TSubclassOf<UGameplayAbility>> StartingAbilities;
-
-	
 	
 };
 
@@ -61,6 +59,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = "Level")
 	int32 CurrentLevel;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TSubclassOf<UGameplayAbility>> CurrentPlayerAbilities;
+
 	// Function to update the score
 	UFUNCTION(BlueprintCallable, Category = "Score")
 	void AddToScore(int32 Points);
@@ -80,6 +81,10 @@ public:
 	// Function to load the high score
 	UFUNCTION(BlueprintCallable, Category = "Save")
 	void LoadHighLevel();
+
+	// Function to load the high score
+	UFUNCTION(BlueprintCallable, Category = "Save")
+	void ResetCurretLevelData();
 };
 
 

@@ -29,19 +29,19 @@ class GGJ2025_API UGGJPlayerAttributeSet : public UAttributeSet
 	GENERATED_BODY()
 	
 public:
-	UPROPERTY(BlueprintReadOnly, Category = "Attributes")
+	UPROPERTY(BlueprintReadWrite, Category = "Attributes")
 	FGameplayAttributeData Score;
 	ATTRIBUTE_ACCESSORS(UGGJPlayerAttributeSet, Score);
 
-	UPROPERTY(BlueprintReadOnly, Category = "Attributes")
+	UPROPERTY(BlueprintReadWrite, Category = "Attributes")
 	FGameplayAttributeData Stamina;
 	ATTRIBUTE_ACCESSORS(UGGJPlayerAttributeSet, Stamina);
 
-	UPROPERTY(BlueprintReadOnly, Category = "Attributes")
+	UPROPERTY(BlueprintReadWrite, Category = "Attributes")
 	FGameplayAttributeData StaminaRegen;
 	ATTRIBUTE_ACCESSORS(UGGJPlayerAttributeSet, StaminaRegen);
 
-	UPROPERTY(BlueprintReadOnly, Category = "Attributes")
+	UPROPERTY(BlueprintReadWrite, Category = "Attributes")
 	FGameplayAttributeData MaxStamina;
 	ATTRIBUTE_ACCESSORS(UGGJPlayerAttributeSet, MaxStamina);
 

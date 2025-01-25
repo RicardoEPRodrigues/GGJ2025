@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/SaveGame.h"
+#include "AbilitySystemComponent.h"
 #include "GGJSaveGame.generated.h"
 
 /**
@@ -22,6 +23,9 @@ public:
 	// High score variable
 	UPROPERTY(BlueprintReadWrite, Category = "SaveData")
 	int32 CurrentLevel;
+
+	UPROPERTY(BlueprintReadWrite, Category = "SaveData")
+	TArray<TSubclassOf<UGameplayAbility>> PlayerAbilities;
 
 	// Constructor
 	UGGJSaveGame();

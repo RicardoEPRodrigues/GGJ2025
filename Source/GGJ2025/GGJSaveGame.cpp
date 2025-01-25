@@ -7,4 +7,5 @@ UGGJSaveGame::UGGJSaveGame()
 {
 	HighScore = 0;
 	CurrentLevel = 0;
+	PlayerAbilities = {};
 }

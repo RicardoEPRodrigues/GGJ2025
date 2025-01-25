@@ -44,7 +44,7 @@ void AGGJ2025Character::BeginPlay()
 
 	if (IsValid(AbilitySystemComponent))
 	{
-		GGJPlayerAbilitySet = AbilitySystemComponent->GetSet<UGGJPlayerAttributeSet>();
+		GGJPlayerAtrributeSet = AbilitySystemComponent->GetSet<UGGJPlayerAttributeSet>();
 	}
 }
 

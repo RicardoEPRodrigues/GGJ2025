@@ -18,6 +18,7 @@ AGGJ2025GameMode::AGGJ2025GameMode()
 
 	CurrentScore = 0;
 	HighScore = 0;
+	CurrentPlayerAbilities = {};
 }
 
 void AGGJ2025GameMode::AddToScore(int32 Points)
@@ -78,7 +79,7 @@ void AGGJ2025GameMode::SaveLevel()
 	{
 		// Save the level
 		SaveGameInstance->CurrentLevel = CurrentLevel;
-
+		SaveGameInstance->PlayerAbilities = CurrentPlayerAbilities;
 		// Cast to a custom save game class if needed
 		UGameplayStatics::SaveGameToSlot(SaveGameInstance, TEXT("HighScoreSlot"), 0);
 	}
@@ -95,6 +96,7 @@ void AGGJ2025GameMode::LoadHighLevel()
 			// Retrieve the saved high score and assign it to the HighScore variable
 			CurrentLevel = SaveGameInstance->CurrentLevel;
 			HighScore = SaveGameInstance->HighScore;
+			CurrentPlayerAbilities = SaveGameInstance->PlayerAbilities;
 			UE_LOG(LogTemp, Log, TEXT("High score successfully loaded: %d"), HighScore);
 		}
 		else
@@ -109,5 +111,15 @@ void AGGJ2025GameMode::LoadHighLevel()
 		UE_LOG(LogTemp, Warning, TEXT("No save game found in HighScoreSlot. High score will be set to 0."));
 		HighScore = 0; // Default to 0 if no save game exists
 		CurrentLevel = 0;
+		CurrentPlayerAbilities.Empty();
 	}
+}
+
+void AGGJ2025GameMode::ResetCurretLevelData()
+{
+	CurrentLevel = 0;
+	CurrentScore = 0;
+	CurrentPlayerAbilities.Empty();
+	SaveLevel();
+	Super::ResetLevel();
 }

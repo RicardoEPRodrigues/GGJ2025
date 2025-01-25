@@ -44,7 +44,7 @@ protected:
 	virtual void BeginPlay();
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GAS", meta = (AllowPrivateAccess = "true"))
-	const class UGGJPlayerAttributeSet* GGJPlayerAbilitySet;
+	const class UGGJPlayerAttributeSet* GGJPlayerAtrributeSet;
 
 public:
 	/** Returns Mesh1P subobject **/
