@@ -3,8 +3,35 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "LevelSequenceActor.h"
+#include "AbilitySystemComponent.h"
 #include "GameFramework/GameModeBase.h"
 #include "GGJ2025GameMode.generated.h"
+
+USTRUCT(BlueprintType)
+struct FGGJ2025GameModeLevel
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int Level = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int TargetScore = 10;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int GameTimer = 200;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	ULevelSequence* IntroSequence = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TSubclassOf<UGameplayAbility>> StartingAbilities;
+
+	
+	
+};
+
 
 UCLASS(minimalapi)
 class AGGJ2025GameMode : public AGameModeBase
@@ -17,6 +44,10 @@ public:
 	// Basic Attribute Set
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Game Mode", meta = (AllowPrivateAccess = "true"))
 	float GameTimer = 200;
+	
+	// Basic Attribute Set
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Game Mode", meta = (AllowPrivateAccess = "true"))
+	TArray<FGGJ2025GameModeLevel> LevelsInfo;
 
 	// Current score
 	UPROPERTY(BlueprintReadWrite, Category = "Score")
