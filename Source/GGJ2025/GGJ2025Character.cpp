@@ -65,7 +65,7 @@ void AGGJ2025Character::ShowBubble()
 
 	FVector BubbleLocation = CameraLocation + (CameraForward * Distance) + ZOffset;
 
-	FVector BubbleScale = FVector(16.0f, 16.0f, 16.0f);
+	FVector BubbleScale = FVector(13.0f, 13.0f, 13.0f);
 	FRotator BubbleRotation = FRotator(0.0f, 0.0f, 0.0f);
 
 	FTransform BubbleTransform = FTransform(BubbleRotation.Quaternion(), BubbleLocation, BubbleScale);
@@ -73,12 +73,24 @@ void AGGJ2025Character::ShowBubble()
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.TransformScaleMethod = ESpawnActorScaleMethod::MultiplyWithRoot;
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
-	
+
 	AActor* BubbleUI = GetWorld()->SpawnActor(BubbleClass, &BubbleTransform, SpawnParams);
 	if (IsValid(BubbleUI))
 	{
+		BubbleUI->SetTickableWhenPaused(true);
+		BubbleUI.pause
 		BubbleUI->SetActorScale3D(BubbleScale);
+		BubbleActor = BubbleUI;
 	}
+}
 
+void AGGJ2025Character::DestroyBubble()
+{
+	if (!IsValid(BubbleActor))
+	{
+		return;
+	}
 	
+	BubbleActor->Destroy();
+	BubbleActor = nullptr;
 }

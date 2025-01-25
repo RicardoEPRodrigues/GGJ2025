@@ -57,4 +57,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "PauseMenu")
 	TSubclassOf<AActor> BubbleClass;
+
+	UPROPERTY()
+	AActor* BubbleActor{nullptr};
+
+	UFUNCTION(BlueprintCallable, Category = "PauseMenu")
+	void DestroyBubble();
 };
