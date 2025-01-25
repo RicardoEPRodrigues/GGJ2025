@@ -78,7 +78,6 @@ void AGGJ2025Character::ShowBubble()
 	if (IsValid(BubbleUI))
 	{
 		BubbleUI->SetTickableWhenPaused(true);
-		BubbleUI.pause
 		BubbleUI->SetActorScale3D(BubbleScale);
 		BubbleActor = BubbleUI;
 	}
