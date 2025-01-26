@@ -320,3 +320,5 @@ RELEASE_MSG
 /Makefile
 /.ignore
 .vsconfig
+
+PackagedBuilds/
